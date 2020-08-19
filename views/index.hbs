@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html> 
+
+<body>
+  
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand font-tertiary h3" href="#"><img src="images/logo12.png" alt="Myself"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">about me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicios">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#medios">Medios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- hero area -->
+<section class="hero-area fondo" id="parallax" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 mx-auto">
+        {{#each inicio}}
+        <h1 class="text-white font-tertiary"> {{titulo}}</h1>
+        {{/each}}
+      </div>
+    </div>
+  </div>  
+
+
+  <!-- social icon -->
+  <ul class="list-unstyled ml-5 mt-3 position-relative">
+ <li class="mb-3"><a style="color: white;" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+ <li class="mb-3"><a style="color: white;" href="https://www.instagram.com/agusguerreiro/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+ <li class="mb-3"><a style="color: white;" href="https://www.linkedin.com/in/agustinaguerreiro/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+<li class="mb-3"><a style="color: white;" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+  </ul>
+  <!-- /social icon -->
+</section>
+<!-- /hero area -->
+
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center">
+        {{#each inicio}}
+        <p class="font-secondary paragraph-lg text-dark" id="servicios"> {{slogan}} </p>
+        {{/each}}
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- services -->
+<section class="section" >
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Servicios</h2>
+      </div>
+       {{#each servicio}}
+
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="card hover-shadow shadow">
+        <div class="card-body text-center px-4 py-5">
+        <i class="ti-palette icon mb-5 d-inline-block fas fa-chalkboard-teacher"></i> 
+            <h4 class="mb-4">{{nombre}}</h4>
+            <p>{{descripcion}}</p>
+        </div>
+        </div>
+       
+    </div>
+
+      {{/each}}
+   
+  </div>
+</section>
+<!-- /services -->
+<!-- about -->
+<section class="section pt-10 ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>About me</h2>
+        {{#each inicio}}
+        <p>{{textabout}}</p>
+        {{/each}}
+       
+      </div>
+      <div class="col-md-4 text-center">
+            {{#each inicio}}
+        <div class="shadow-down mt-10">
+          <img alt="author" class="img-fluid w-100 rounded-lg border-thick border-white"  src="{{imagen}}">
+        </div>
+        {{/each}}
+        <h4 id="medios">Agustina Guerreiro</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- blog -->
+<section class="section"  >
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Blogs</h2>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <article class="card shadow">
+          <img class="rounded card-img-top" src="images/blog/post-3.jpg" alt="post-thumb">
+          <div class="card-body">
+            <h4 class="card-title">Medium
+            </h4>
+            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et
+              dolore magna aliqua.</p>
+            <a href="https://medium.com/" target="_blank" class="btn btn-xs btn-primary btn-vio">Read More</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <article class="card shadow">
+          <img class="rounded card-img-top" src="images/blog/post-4.jpg" alt="post-thumb">
+          <div class="card-body">
+            <h4 class="card-title">Youtube
+            </h4>
+            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et
+              dolore magna aliqua.</p>
+            <a href="https://youtube.com/" target="_blank" class="btn btn-xs btn-primary btn-vio">Read More</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+        <article class="card shadow">
+          <img class="rounded card-img-top" src="images/blog/post-2.jpg" alt="post-thumb">
+          <div class="card-body">
+            <h4 class="card-title">Linkedin</a>
+            </h4>
+            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et
+              dolore magna aliqua.</p>
+            <a href="https://www.linkedin.com/in/agustinaguerreiro" target="_blank" class="btn btn-xs btn-primary btn-vio"  id="contacto">Read More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /blog -->
+ <section class="section section-on-footer" >
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Contactanos!</h2>
+      </div>
+      <div class="col-lg-8 mx-auto">
+        <div class="bg-white rounded text-center p-5 shadow-down">
+          <h4 class="mb-80"> En breve le escribiremos </h4>
+          <form method="post" action="/" class="row">
+            <div class="col-md-6">
+              <input type="text" id="nombre" name="nombre" placeholder=" Nombre completo" class="form-control px-0 mb-4" required>
+                   </div>
+            <div class="col-md-6">
+                     
+            <input type="email" id="mail" name="mail" placeholder=" Correo electrónico" class="form-control px-0 " required>
+            
+            </div>
+                <div class="col-md-6">
+              <input type="tel" id="phone" name="phone" placeholder=" Telefono" class="form-control px-0 mb-4" required>
+                   </div>
+              <div class="col-md-6">
+                     
+                    <select id= "serv" name= "serv" class="form-control px-0 mt-0" style="height: 60px;" >
+              <option selected disabled> Servicio interesado</option>
+              <option>Capacitaciones</option>
+              <option>Consultoría</option>
+              <option>Facilitaciones</option>
+              <option>Otro</option>
+              </select>
+            </div>   
+               
+            <div class="col-12">
+              <textarea name="texto" id="texto" class="form-control px-0 mb-4"
+                placeholder=" Algo para agregar"></textarea>
+            </div> 
+            <div class="col-lg-6 col-10 mx-auto">
+              <button class="btn btn-primary w-100 btn-vio" type="submit">Enviar</button>
+            </div>
+            
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /contact -->            
+
+</body>
+</html> 
+
