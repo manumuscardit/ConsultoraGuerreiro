@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
   res.render('index', { 
   title: 'Guerreiro',
   inicio, 
-  serv,});
+  serv});
 });
 
-router.post('/', async (req,res) => {
+router.post("/", async (req,res) => {
   // Informacion
 const { nombre, mail, phone, serv, texto} = req.body;
 
@@ -28,6 +28,7 @@ const prueba = {to, subject, html};
 console.log(prueba);
 const resultMail= await main ({to, subject, html});
 console.log(resultMail);
-res.end()});
+res.render('index', {message: 'Mensaje enviado'})
+});
 
 module.exports = router;

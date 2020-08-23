@@ -7,6 +7,6 @@ router.get('/', async (req, res) => {
     const capacitaciones= await getCapacitaciones ();
     console.log(capacitaciones);
     res.render('capacitaciones', { title: 'Capacitaciones',
-capacitaciones: capacitaciones })});
+capacitaciones: capacitaciones})});
  
 module.exports = router;

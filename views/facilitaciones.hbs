@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
-
-  
 
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -49,11 +44,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        {{#each servicios}}
+        {{#each facilitaciones}}
         <h3 class="font-tertiary mb-5">Cual es la importancia de las {{nombre}}?</h3>
         {{/each}}
         <div class="content">
-          {{#each servicios}}
+          {{#each facilitaciones}}
           <img src={{imagen}} alt="post-thumb" class="img-fluid rounded float-left mr-5 mb-4">
           <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -61,7 +56,7 @@
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.</strong>
           <p>{{texto}}</p>
-         {{/each }}
+         {{/each}}
         </div>
       </div>
     </div>
