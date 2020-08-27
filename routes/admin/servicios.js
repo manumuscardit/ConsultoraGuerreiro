@@ -7,8 +7,8 @@ router.get('/baja/:id', async(req,res)=>{ //para dar de baja servicios
     try {
       const {id} = req.params;
       const result= await update(id,{estado : 0}); //el estado buscado es 0
-      res.render("altaservicio")
-    } catch (error) {}
+      res.redirect("/admin/servicios");
+    } catch (error) {console.log(error)}
     
   }else{
     res.send("No tenes permisos para ingresar aquí!")

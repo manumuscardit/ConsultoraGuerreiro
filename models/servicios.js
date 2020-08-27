@@ -17,7 +17,7 @@ getServicios= async(nombre) => {try {
 }}
 // Funcion para servicios individuales
 getServicio= async(nombre) => {try {
-  const query= "SELECT nombre, texto, imagen FROM servicios WHERE nombre= ?"
+  const query= "SELECT nombre, texto, imagen FROM servicios WHERE nombre= ?";
  const params= [nombre];
   const rows = await pool.query(query,params);
 return rows[0]; //primer elemento vector 
