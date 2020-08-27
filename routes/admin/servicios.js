@@ -33,7 +33,6 @@ router.get("/modi/:id", async (req, res) => {
 // funcion para modificar
 router.post("/modi/:id", async (req,res) =>{
   try {
-      console.log(req.body);
       const {nombre, descripcion, texto, icono} = req.body; //recolecto datos de form
       const obj= {
         nombre: nombre,

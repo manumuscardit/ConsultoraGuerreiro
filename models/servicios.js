@@ -44,9 +44,8 @@ const create = async(obj) =>{
 //Funcion update
 const update = async(id,obj) =>{
   console.log("Se actualizara el id:", id);
-  console.log(obj);
-  const query = "UPDATE servicios SET ? where id = ?";
-  const params = [obj,id];
+  const query = "UPDATE ?? SET ? where id = ?";
+  const params = ["servicios", obj, id];
   const rows = await pool.query(query,params);
   return rows;
 }
