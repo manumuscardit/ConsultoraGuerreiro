@@ -33,7 +33,7 @@
        
         <div class="content">
         <h3 class="font-tertiary" style="margin-bottom: 50px;">Edición de {{servicios.nombre}} </h3>
-        <form method="POST" action="/admin/servicios/modi">
+        <form method="POST" action="/admin/servicios/modi/{{servicios.id}}">
         <div class="form-group">
           <label for="nombre"> Nombre</label>
             <textarea class="form-control" id="nombre" name="nombre">{{servicios.nombre}}</textarea>

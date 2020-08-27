@@ -30,7 +30,25 @@ router.get("/modi/:id", async (req, res) => {
   }else{
     res.send("No tenes permisos para ingresar aquí!")}
 });
-  
+// funcion para modificar
+router.post("/modi/:id", async (req,res) =>{
+  try {
+      console.log(req.body);
+      const {nombre, descripcion, texto, icono} = req.body; //recolecto datos de form
+      const obj= {
+        nombre: nombre,
+        descripcion: descripcion,
+        texto: texto,
+        icono: icono
+      };
+      console.log(obj);
+      const result = await update(obj);
+      res.end();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
 router.get('/alta', async (req,res) =>{ //subruta para el formulario
   if (req.session.administrador){
 
