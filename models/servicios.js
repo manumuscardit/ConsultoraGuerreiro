@@ -24,6 +24,15 @@ return rows[0]; //primer elemento vector
 } catch (error) {
   console.log(error);
 }}
+// Funcion para servicios individuales en ABM
+getAdminServicio= async(id) => {try {
+  const query= "SELECT nombre, texto, descripcion, imagen, id, icono FROM servicios WHERE id= ?"
+ const params= [id];
+  const rows = await pool.query(query,params);
+return rows[0]; //primer elemento vector 
+} catch (error) {
+  console.log(error);
+}}
 // Funcion para insertar nuevos servicios
 const create = async(obj) =>{
   const query= "INSERT INTO servicios SET ?";
@@ -43,5 +52,5 @@ const update = async(id,obj) =>{
 }
 // Exportacion
 module.exports = {
-    servIndex, getServicio, getServicios, create, update
+    servIndex, getServicio, getServicios, getAdminServicio, create, update
 }

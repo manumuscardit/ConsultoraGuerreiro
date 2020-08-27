@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html> 
 
-<body>
-  
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand font-tertiary h1" href="/admin/servicios"><i class="fas fa-arrow-alt-circle-left"></i></a>
@@ -14,6 +10,7 @@
     <div class="collapse navbar-collapse text-center" id="navigation">
 
     </div>
+    
   </nav>
 </header>
 <section class="page-title bg-primary position-relative">
@@ -35,25 +32,25 @@
        
        
         <div class="content">
-        <h3 class="font-tertiary" style="margin-bottom: 50px;">¿Que producto desea agregar?</h3>
-        <form >
+        <h3 class="font-tertiary" style="margin-bottom: 50px;">Edición de {{servicios.nombre}} </h3>
+        <form method="POST" action="/admin/servicios/modi">
         <div class="form-group">
-            <label for="nombre"> Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+          <label for="nombre"> Nombre</label>
+            <textarea class="form-control" id="nombre" name="nombre">{{servicios.nombre}}</textarea>
         </div>
         <div class="form-group">
             <label for="descripcion"> Descripcion corta</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion">
+            <textarea class="form-control" id="descripcion" name="descripcion">{{servicios.descripcion}}</textarea>
         </div>
         <div class="form-group">
             <label for="texto"> Texto</label>
-            <textarea class="form-control" id="texto" name="texto">hola</textarea>
+            <textarea class="form-control" id="texto" name="texto">{{servicios.texto}}</textarea>
         </div>
         <div class="form-group">
-            <label for="icono"> Icono (FontAwesome)</label>
-            <input type="text" class="form-control" id="icono" name="icono">
+             <label for="icono"> Icono</label>
+            <textarea class="form-control" id="icono" name="icono">{{servicios.icono}}</textarea>
         </div>
-        <button class="btn btn-primary btn-block">Subir</button>
+        <button type="submit" class="btn btn-primary btn-block">Subir</button>
 
         </form>
         </div>
