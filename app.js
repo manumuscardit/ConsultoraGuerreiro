@@ -30,7 +30,7 @@ app.use('/', indexRouter);
 
 app.use('/admin/servicios', adminServiciosRouter);
 // app.use('/admin/index', adminIndexRouter);
-app.use('/admin', loginRouter);
+app.use('/login', loginRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
