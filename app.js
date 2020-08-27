@@ -7,7 +7,8 @@ const dotenv= require("dotenv");
 dotenv.config();
 
 var indexRouter = require('./routes/index');
-const adminServiciosRouter= require('./routes/admin/servicios')
+const adminServiciosRouter= require('./routes/admin/servicios');
+const loginRouter= require('./routes/login');
 
 
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 
 app.use('/admin/servicios', adminServiciosRouter);
 // app.use('/admin/index', adminIndexRouter);
+app.use('/admin', loginRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -6,6 +6,18 @@ const {getServicio} = require('./../models/servicios');
 const {main} = require('./../utils/mail'); //funcion de mail
 
 
+router.get('/:nombre', async(req,res)=>{ //Router de SERVICIOS
+  try {
+    const nombre = req.params.nombre;
+    const servicios = await getServicio(nombre);
+    console.log(servicios);
+  res.render('servicio', servicios);
+  } catch (error) {
+   res.render('error')
+  }
+ 
+})
+
 router.get('/', async (req, res) => { //Router de INDEX
   const inicio= await inicial.getInicio();
   console.log(inicio);
@@ -17,13 +29,6 @@ router.get('/', async (req, res) => { //Router de INDEX
   serv});
 });
 
-router.get('/:nombre', async(req,res)=>{ //Router de SERVICIOS
-  const nombre = req.params.nombre;
-  const servicios = await getServicio(nombre);
-  console.log(servicios);
-res.render('servicio', servicios);
-
-})
 
 router.post("/", async (req,res) => { //Router de NODEMAILER
 
