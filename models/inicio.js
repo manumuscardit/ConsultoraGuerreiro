@@ -1,4 +1,6 @@
 const pool= require('../utils/bd') //importamos referencia de conexion
+
+// Funcion para info inicial
 getInicio= async () => { try {
   const query = "SELECT titulo, slogan, textabout, imagen FROM inicio"; //consulta
   const rows = await pool.query(query); //ejecucion 

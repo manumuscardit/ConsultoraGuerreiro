@@ -8,9 +8,7 @@ dotenv.config();
 
 var indexRouter = require('./routes/index');
 
-const consultoriaRouter = require('./routes/consultoria');
-const capacitacionesRouter= require('./routes/capacitaciones');
-const facilitacionesRouter= require('./routes/facilitaciones');
+
 
 var app = express();
 
@@ -26,10 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.use('/consultoria', consultoriaRouter);
-app.use('/capacitaciones', capacitacionesRouter);
-app.use('/facilitaciones', facilitacionesRouter);
 
+
+// app.use('/admin/servicios', adminServiciosRouter);
+// app.use('/admin/index', adminIndexRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
