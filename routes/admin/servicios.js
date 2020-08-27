@@ -3,21 +3,30 @@ const router = express.Router();
 const { getServicios, create, update} = require('./../../models/servicios');
 
 router.get('/baja/:id', async(req,res)=>{ //para dar de baja servicios
-  try {
-    const {id} = req.params;
-    const result= await update(id,{estado : 0}); //el estado buscado es 0
-    res.render("altaservicio")
-  } catch (error) {
-    console.log(error);
+  if(req.session.administrador){ 
+
+    try {
+      const {id} = req.params;
+      const result= await update(id,{estado : 0}); //el estado buscado es 0
+      res.render("altaservicio")
+    } catch (error) {}
+    
+  }else{
+    res.send("No tenes permisos para ingresar aquí!")
   }
 })
 router.get('/alta', async (req,res) =>{ //subruta para el formulario
-  try {
-    res.render('altaservicio',{title: "Alta de servicio"})
-  } catch (error) {
-    
+  if (req.session.administrador){
+
+    try {
+      res.render('altaservicio',{title: "Alta de servicio"})
+    } catch (error) {
+      
+    }
+  }else{
+    res.send("No tenes permisos para ingresar aquí!")
   }
-});
+  });
 // Para recolectar datos de formulario, para dsps usar create()
 router.post('/alta', async(req,res)=>{try {
   console.log(req.body);
@@ -39,14 +48,20 @@ router.post('/alta', async(req,res)=>{try {
 });
 
 // Funcion para tabla servicios
-router.get('/', async (req,res) =>{try {
-const servicios= await getServicios();
-console.log(servicios);
-res.render('servicios', {
-    title:'Servicios',
-    servicios  }) 
-} catch (error) {
-console.log(error)}    
+router.get('/', async (req,res) =>{
+ if(req.session.administrador) {
+   try { 
+     const servicios= await getServicios();
+     console.log(servicios);
+     res.render('servicios', {
+       title:'Servicios',
+       servicios  }) 
+      } catch (error) {
+        console.log(error)}    
+      }
+  else{
+res.send("Ups! No tenes permisos para ingresar aquí")
+  }
 });
 
 

@@ -5,7 +5,8 @@ logueado = async(usuario, pass) => { //Consulta
       const params = [usuario, pass];
       return await pool.query(query,params); 
     } catch (error) {
-       console.log(error) 
+       console.log(error);
+       console.log("Usuario o contraseña incorrectos")
     }
 }
 

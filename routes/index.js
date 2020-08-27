@@ -6,7 +6,7 @@ const {getServicio} = require('./../models/servicios');
 const {main} = require('./../utils/mail'); //funcion de mail
 
 
-router.get('/:nombre', async(req,res)=>{ //Router de SERVICIOS
+router.get('/serv/:nombre', async(req,res)=>{ //Router de SERVICIOS
   try {
     const nombre = req.params.nombre;
     const servicios = await getServicio(nombre);
