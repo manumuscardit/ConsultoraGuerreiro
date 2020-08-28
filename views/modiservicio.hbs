@@ -35,22 +35,22 @@
         <h3 class="font-tertiary" style="margin-bottom: 50px;">Edición de {{servicios.nombre}} </h3>
         <form method="POST" action="/admin/servicios/modi/{{servicios.id}}">
         <div class="form-group">
-          <label for="nombre"> Nombre</label>
+          <label for="nombre"><strong>Nombre</strong></label>
             <textarea class="form-control" id="nombre" name="nombre">{{servicios.nombre}}</textarea>
         </div>
         <div class="form-group">
-            <label for="descripcion"> Descripcion corta</label>
+            <label for="descripcion"><strong>Descripción corta</strong></label>
             <textarea class="form-control" id="descripcion" name="descripcion">{{servicios.descripcion}}</textarea>
         </div>
         <div class="form-group">
-            <label for="texto"> Texto</label>
+            <label for="texto"><strong>Texto</strong></label>
             <textarea class="form-control" id="texto" name="texto">{{servicios.texto}}</textarea>
         </div>
         <div class="form-group">
-             <label for="icono"> Icono</label>
+             <label for="icono"><strong>Icono</strong></label>
             <textarea class="form-control" id="icono" name="icono">{{servicios.icono}}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Subir</button>
+        <button type="submit" class="btn btn-primary btn-block">Editar</button>
 
         </form>
         </div>

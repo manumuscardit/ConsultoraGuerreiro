@@ -16,7 +16,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link h4" href="../index">Editor Index</a>
+          <a class="nav-link h4" href="/admin/servicios">Editor de serv.</a>
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="text-white font-tertiary">Adm. de servicios</h1>
+        <h1 class="text-white font-tertiary">Adm. de {{title}}</h1>
       </div>
     </div>
   </div>
@@ -41,30 +41,29 @@
        
        
         <div class="content">
-        <h3 class="font-tertiary mb-3">Servicios cargados</h3>
-        <a class="btn btn-primary" href="/admin/servicios/alta">Alta de servicio</a>
-        <table class="table table-hover table-responsive">
-          <thead>
-            <tr> 
-            <th>Nombre</th>
-            <th>Descripción </th>
-            <th>Texto</th>
-            <th>Imagen</th>
-            <th></th>
-            <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each servicios}}
-            <tr>
-              <td>{{nombre}}</td>
-              <td>{{descripcion}}</td>
-              <td>{{texto}}</td>
-              <td><img src="/{{imagen}}" style="width: 140px; height:auto"></td>
-              <td><a href="../servicios/modi/{{id}}"> <i class="fas fa-cogs " style="color: green; cursor: pointer"> </i></a></td>
-              <td><a href="../servicios/baja/{{id}}"> <i class="fas fa-trash text-danger" style=" cursor: pointer"> </i></a></td>
-            </tr>
-            {{/each}}
+        <h3 class="font-tertiary mb-3 text-center">Modifique los datos del</h3>
+        <h3 class="font-tertiary mb-3 text-center">inicio a su propio gusto</h3>
+       
+
+        {{#each index}}
+<form method="POST" action="/admin/index">
+        <div class="form-group">
+          <label for="titulo"> <strong> Titulo</strong></label>
+            <textarea class="form-control" id="titulo" name="titulo">{{titulo}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="slogan"> <strong>Slogan</strong></label>
+            <textarea class="form-control" id="slogan" name="slogan">{{slogan}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="textabout"> <strong>Acerca de mí</strong></label>
+            <textarea class="form-control" id="textabout" name="textabout">{{textabout}}</textarea>
+        </div>
+      
+        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+
+        </form>
+        {{/each}}
           </tbody>
         </table>
         </div>
