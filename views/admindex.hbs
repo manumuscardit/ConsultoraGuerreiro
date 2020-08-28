@@ -46,7 +46,7 @@
        
 
         {{#each index}}
-<form method="POST" action="/admin/index">
+<form id="form1">
         <div class="form-group">
           <label for="titulo"> <strong> Titulo</strong></label>
             <textarea class="form-control" id="titulo" name="titulo">{{titulo}}</textarea>
@@ -60,7 +60,7 @@
             <textarea class="form-control" id="textabout" name="textabout">{{textabout}}</textarea>
         </div>
       
-        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+        <button type="button" class="btn btn-primary btn-block" id="boton">Enviar</button>
 
         </form>
         {{/each}}
@@ -70,4 +70,40 @@
       </div>
     </div>
   </div>
+    <script>
+window.addEventListener('load', () => {
+        console.log("Cargado..")
+        document.getElementById('boton').addEventListener('click', botonApretado);
+    });
+
+    const botonApretado = () => {
+        console.log("%cUpss me apretaron :stuck_out_tongue_winking_eye:🐱‍🏍", "color:red");
+        const datos = new URLSearchParams(new FormData(document.getElementById('form1')));
+        // fetch
+        fetch('/admin/index', {
+            method: 'POST',
+            body: datos
+        })
+            .then(response => response.json())
+            .then(data => message(data));
+    }
+
+    const message = (datos) => {
+        if (datos.success == true) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Index modificado',
+                showConfirmButton: true,
+            })
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops... Ocurrio un error ',
+                showConfirmButton: true,
+            })
+        }
+    }
+  </script>
 </section>

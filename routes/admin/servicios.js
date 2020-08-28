@@ -42,7 +42,7 @@ router.post("/modi/:id", async (req,res) =>{
       };
       console.log(obj);
       const result1 = await update(obj, id);
-      res.json({success: true}); //AJAX
+      res.json({success: true}); //sweet
     } catch (error) {
       console.log(error);
       res.json({success: false});
@@ -75,12 +75,10 @@ router.post('/alta', async(req,res)=>{try {
   }
   const result = await create(object);
   console.log('Servicio agregado');
-  res.end();
+  res.json({success: true}); //AJAX
 } catch (error) {
-  console.log(error)
-}
-
-});
+  console.log(error);
+  res.json({success: false})}});
 
 // Funcion para tabla servicios
 router.get('/', async (req,res) =>{

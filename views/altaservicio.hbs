@@ -35,8 +35,9 @@
        
        
         <div class="content">
-        <h3 class="font-tertiary" style="margin-bottom: 50px;">¿Que producto desea agregar?</h3>
-        <form method="POST" action="/admin/servicios/alta">
+        <h3 class="font-tertiary" style="margin-bottom: 50px;">¿Que servicio desea agregar?</h3>
+       
+        <form id="form1">
         <div class="form-group" >
             <label for="nombre"> <strong>Nombre</strong></label>
             <input type="text" class="form-control" id="nombre" name="nombre">
@@ -53,11 +54,47 @@
             <label for="icono"> <strong>Icono (fontawesome)</strong></label>
             <input type="text" class="form-control" id="icono" name="icono">
         </div>
-        <button class="btn btn-primary btn-block">Subir</button>
+        <button type="button" class="btn btn-primary btn-block" id="boton">Subir</button>
 
         </form>
         </div>
       </div>
     </div>
   </div>
+    <script>
+window.addEventListener('load', () => {
+        console.log("Cargado..")
+        document.getElementById('boton').addEventListener('click', botonApretado);
+    });
+
+    const botonApretado = () => {
+        console.log("%cUpss me apretaron :stuck_out_tongue_winking_eye:🐱‍🏍", "color:red");
+        const datos = new URLSearchParams(new FormData(document.getElementById('form1')));
+        // fetch
+        fetch('/admin/servicios/alta', {
+            method: 'POST',
+            body: datos
+        })
+            .then(response => response.json())
+            .then(data => message(data));
+    }
+
+    const message = (datos) => {
+        if (datos.success == true) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Nuevo servicio subido!',
+                showConfirmButton: true,
+            })
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops... Ocurrio un error ',
+                showConfirmButton: true,
+            })
+        }
+    }
+  </script>
 </section>

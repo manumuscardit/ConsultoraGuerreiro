@@ -8,7 +8,13 @@ getInicio= async () => { try {
 } catch (error){
     console.log(error); //error  
 }}
-
+const update = async(obj) =>{
+  console.log("Se actualizará el index");
+  const query = "UPDATE ?? SET ? where id = 1";
+  const params = ["inicio", obj];
+  const rows = await pool.query(query,params);
+  return rows;
+}
 module.exports = {
-    getInicio
+    getInicio, update
 }
