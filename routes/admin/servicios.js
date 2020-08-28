@@ -41,7 +41,7 @@ router.post("/modi/:id", async (req,res) =>{
         icono: icono
       };
       console.log(obj);
-      const result = await update(obj);
+      const result1 = await update(obj);
       res.end();
     } catch (error) {
       console.log(error);

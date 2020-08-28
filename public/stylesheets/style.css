@@ -919,6 +919,10 @@ blockquote {
 }
 
 .btn-vio{
+  background-color: #3b5566 !important;
+  border-color: #3b5566 !important;
+}
+.btn-vio:hover{
   background-color: #2F4451 !important;
   border-color: #2F4451 !important;
 }
@@ -928,6 +932,25 @@ blockquote {
 .section-on-footer{
   background-image: url(https://cdn.pixabay.com/photo/2020/08/17/00/22/bg-5494048_960_720.png);
 }
+.carta{
+background-color: white;
+}
+.carta:hover{
+  transition: .3s ease;
+background-color: #2F4451;
+color: #fff;
+
+}
+.blanco{
+
+  color: currentColor;
+}
+.blanco:hover * {
+  transition: .4s ease;
+  color: #fff;
+  
+}
+
 @media (min-width:767px){
 	#whatsapp-icon{
 		display:none;
