@@ -42,7 +42,7 @@ const create = async(obj) =>{
   return rows.insertID;
 }
 //Funcion update
-const update = async(id,obj) =>{
+const update = async(obj, id) =>{
   console.log("Se actualizara el id:", id);
   const query = "UPDATE ?? SET ? where id = ?";
   const params = ["servicios", obj, id];

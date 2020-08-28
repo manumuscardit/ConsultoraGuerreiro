@@ -6,7 +6,7 @@ router.get('/baja/:id', async(req,res)=>{ //para dar de baja servicios
   if(req.session.administrador){ 
     try {
       const {id} = req.params;
-      const result= await update(id,{estado : 0}); //el estado buscado es 0
+      const result= await update({estado : 0}, id); //el estado buscado es 0
       res.redirect("/admin/servicios");
     } catch (error) {console.log(error)}
     
@@ -33,7 +33,7 @@ router.get("/modi/:id", async (req, res) => {
 // funcion para modificar
 router.post("/modi/:id", async (req,res) =>{
   try {
-      const {nombre, descripcion, texto, icono} = req.body; //recolecto datos de form
+      const {id, nombre, descripcion, texto, icono} = req.body; //recolecto datos de form
       const obj= {
         nombre: nombre,
         descripcion: descripcion,
@@ -41,10 +41,11 @@ router.post("/modi/:id", async (req,res) =>{
         icono: icono
       };
       console.log(obj);
-      const result1 = await update(obj);
-      res.end();
+      const result1 = await update(obj, id);
+      res.json({success: true}); //AJAX
     } catch (error) {
       console.log(error);
+      res.json({success: false});
     }
   });
 
