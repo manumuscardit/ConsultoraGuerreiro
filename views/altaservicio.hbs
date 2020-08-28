@@ -37,7 +37,7 @@
         <div class="content">
         <h3 class="font-tertiary" style="margin-bottom: 50px;">¿Que servicio desea agregar?</h3>
        
-        <form id="form1">
+        <form id="form1" enctype="multipart/form-data">
         <div class="form-group" >
             <label for="nombre"> <strong>Nombre</strong></label>
             <input type="text" class="form-control" id="nombre" name="nombre">
@@ -53,6 +53,10 @@
         <div class="form-group">
             <label for="icono"> <strong>Icono (fontawesome)</strong></label>
             <input type="text" class="form-control" id="icono" name="icono">
+        </div>
+        <div class="form-group">
+            <label for="imagen"> <strong>Imagen</strong></label>
+            <input type="file" class="form-control" id="imagen" name="imagen">
         </div>
         <button type="button" class="btn btn-primary btn-block" id="boton">Subir</button>
 

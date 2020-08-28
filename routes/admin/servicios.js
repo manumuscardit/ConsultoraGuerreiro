@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const config = {dest : './public/tmp'};
 const { getServicios, getServicio, create, update} = require('./../../models/servicios');
-
+const upload = multer(config);
 router.get('/baja/:id', async(req,res)=>{ //para dar de baja servicios
   if(req.session.administrador){ 
     try {
@@ -63,8 +65,9 @@ router.get('/alta', async (req,res) =>{ //subruta para el formulario
   });
   
 // Para recolectar datos de formulario, para dsps usar create()
-router.post('/alta', async(req,res)=>{try {
+router.post('/alta', upload.single('imagen'), async(req,res)=>{try {
   console.log(req.body);
+  
   const {nombre, descripcion, texto, icono, imagen} = req.body;
   const object= {
     nombre: nombre,
@@ -73,8 +76,9 @@ router.post('/alta', async(req,res)=>{try {
     icono: icono,
     imagen: imagen
   }
+  console.log(req.file); //undefined
+  console.log(req.body);
   const result = await create(object);
-  console.log('Servicio agregado');
   res.json({success: true}); //AJAX
 } catch (error) {
   console.log(error);
